@@ -3,15 +3,15 @@
 #include <string.h > //Biblioteca para usar o strcpy
 #include <stdlib.h > //Pra usar o exit
 
-// Defini��es
+// Definições
 #define MAX_INVENTARIO 10 // Define o valor maximo do inventario
 
 /*
  *
- *Nosso algoritimo simula um jogo de RPG medieval em que o jogador vai se aventurar pelas mais divertidas e inexperadas situa��es. 
+ *Nosso algoritimo simula um jogo de RPG medieval em que o jogador vai se aventurar pelas mais divertidas e inexperadas situações. 
  *Contendo alem de uma historia envolvente, uma experiencia intrigante com a descoberta da capivara magica.
  *
- *Contemos fun��es:
+ *Contamos com as seguintes funções:
  *
  *## Para cada estado e cenario da historia.
  *## Inserir elemento
@@ -23,36 +23,36 @@
  *Alem das demais como por exemplo:
  *
  *## Menu inicial
- *## Menu de op��es
+ *## Menu de opcoes
  *## Classes 
  *## Cen�rios no geral como loja e tarverna.
  *
- *ATEN��O: VERS�O DEMO DO JOGO!
- *AUTORES: Jos� Miguel & Renato Louren�o
+ *ATENCAO: VERSSO DEMO DO JOGO!
+ *AUTORES: José Miguel & Renato Lourenço
  *
  */
 
-// Fun��es Globais 
-void removerPersonagem(); // Opera��o para remover personagem
-void resumoPersonagem(char *nome, char *classe); // Opera��o de resumo inicial
+// Funções Globais 
+void removerPersonagem(); // Operação para remover personagem
+void resumoPersonagem(char *nome, char *classe); // Operação de resumo inicial
 void criarPersonagem(void);	// Atualiza a struct 
 void classeEscolhida(int escolhaClasse, char *classe); // Atualiza a classe no struct
 void jogoIniciado(char *nome); // Inicio da historia 
 void explorarCidade(int resposta); // Cenario da cidade
 void loja(); // Loja de itens
-void entrarTaverna(void);	//Fun��o para op��o de entrar na Taverna
+void entrarTaverna(void);	//Função para opção de entrar na Taverna
 void anaoDialogo(void);	// Dialogo com NPC
 void torreVelha(void); // Cenario/Evento
 void entrarBuraco(void); // Cenario/Evento
 void olharParaTras(void); // Cenario/Evento
-void opcoes(); // Menu de op��es do usuario
+void opcoes(); // Menu de opções do usuario
 void retornarJogo(); // Checkpoit para o jogador quando sair do menu retornar onde estava
 void listarMochila(char inventario[][20], int tamanho);	// Itens na mochila
 void inserirElemento(char inventario[][20], int *tamanho, const char *item); // Inserir itens na mochila
 
 int tamanhoInventario = 3; // Tamanho Inicial do inventario 
 int exibirTexto(char *descricao, char *escolhas[]);	// 
-int exibirTextoOpcoes(char *descricao, char *escolhas[]); // Fun��o dedicada aos dialogos 
+int exibirTextoOpcoes(char *descricao, char *escolhas[]); // Função dedicada aos dialogos 
 char inventario[MAX_INVENTARIO][20] = { "Bussola" };// Definindo os itens iniciais, junto com o array
 
 // Estrustura do usuario 
@@ -67,7 +67,7 @@ typedef struct personagem
 
 Personagem;
 
-// Evita looping em caso da informa��o inserida ser diferente do tipo da variel que vai receber a escolha 
+// Evita looping em caso da informação inserida ser diferente do tipo da variel que vai receber a escolha 
 void limparBuffer()
 {
 	char c;
@@ -76,8 +76,8 @@ void limparBuffer()
 	} while (c != '\n');
 }
 
-// Fun��o globais iniciadas ap�s a struct por depender das informa��es que l� constam
-void buscarPersonagem(Personagem *personagemArray, int contagem); // Fun��o que busca e lista
+// Funções globais iniciadas após a struct por depender das informações que lá constam
+void buscarPersonagem(Personagem *personagemArray, int contagem); // Função que busca e lista
 void salvarDados(Personagem *personagemArray, int nivel); // Salva os dados no arquivo TXT 
 int personagemExistente = 0; // Variavel global
 int resposta = 0; // Variavel global
@@ -114,7 +114,7 @@ void salvarDados(Personagem *personagemArray, int nivel)
 	fclose(arquivo);
 }
 
-// Le as informa��es do arquivo
+// Le as informações do arquivo
 void carregarDados(Personagem *personagemArray, int nivel)
 {
 	FILE *arquivo = fopen("arquivo.txt", "r");
@@ -135,7 +135,7 @@ void carregarDados(Personagem *personagemArray, int nivel)
 		fscanf(arquivo, "%f", &exp);
 		fgetc(arquivo);
 		fscanf(arquivo, "%s", &classe);
-		// colocar uma fun��o para receber essas informa��es do FILE 
+		// colocar uma função para receber essas informações do FILE 
 		fgetc(arquivo);
 	}
 
@@ -143,7 +143,7 @@ void carregarDados(Personagem *personagemArray, int nivel)
 
 }
 
-// Fun��o main que contem o menu inicial de op��es
+// Função main que contem o menu inicial de opções
 int main()
 { 
 
@@ -159,13 +159,13 @@ int main()
 
 	switch (escolha)
 	{
-		case 1: // Vai ser destinado a fun��o que ir� salvar as informa��es do usuario na struct
+		case 1: // Vai ser destinado a função que irá salvar as informações do usuario na struct
 			criarPersonagem(); 
 			break;
 
-		case 2:	// Descri��o do jogo
-			printf("Jogo de RPG baseado em fatos reais ou nem tanto, inspirado na lend�ria capivara que protegia a humanidade durante anos\n"
-				"agora as for�as do meu tentam conquistar os seus poderes para dominar o mundo..."
+		case 2:	// Descricaoo do jogo
+			printf("Jogo de RPG baseado em fatos reais ou nem tanto, inspirado na lendaria capivara que protegia a humanidade durante anos\n"
+				"agora as forcas do meu tentam conquistar os seus poderes para dominar o mundo..."
 				"Desenvolvido e criado pela equipe criativa e de desenvolvedores Jose Miguel e Renato Lourenco. \n\n");
 
 			printf("deseja voltar ao jogo?\n\n");
@@ -202,11 +202,11 @@ int main()
 
 			break;
 
-		case 4: // Caso a op��o deseja seja a de sair ele encerra o programa
+		case 4: // Caso a opção deseja seja a de sair ele encerra o programa
 			printf("Saindo...");
 			return 0;
 
-		default: // Tratamento de caso a op��o escrita seja diferente das esperadas
+		default: // Tratamento de caso a opção escrita seja diferente das esperadas
 			printf("Opcao invalida! Tente novamente.\n\n");
 			limparBuffer();
 			main();
@@ -216,8 +216,8 @@ int main()
 	return 0;
 }
 
-// Fun��o para cadastrar o personagem
-void criarPersonagem() /*Primeira op��o do menu*/
+// Função para cadastrar o personagem
+void criarPersonagem() /*Primeira opção do menu*/
 {
 	char nomePersonagem[30];
 	int escolhaClasse;
@@ -235,9 +235,9 @@ void criarPersonagem() /*Primeira op��o do menu*/
 	printf("Para comecar, digite o seu nome: ");
 
 	scanf("%s", nomePersonagem);
-	strcpy(personagem1.nome, nomePersonagem); /*Armazenar o nome do personagem escolhido na struct (que ser� todo resumo do personagem)*/
+	strcpy(personagem1.nome, nomePersonagem); /*Armazenar o nome do personagem escolhido na struct (que será todo resumo do personagem)*/
 
-	while (escolhaClasse > 3) // Tratamento de caso a op��o escrita seja diferente das esperadas
+	while (escolhaClasse > 3) // Tratamento de caso a opção escrita seja diferente das esperadas
 	{
 		printf("\nOla %s escolha a sua classe: \n\n", nomePersonagem);
 		printf("1- Guerreiro\n2- Mago\n3- Arqueiro\n\n");
@@ -250,21 +250,21 @@ void criarPersonagem() /*Primeira op��o do menu*/
 		}
 	}
 
-	classeEscolhida(escolhaClasse, classe);	//Fun��o respons�vel pela condi��o da classe, armazenando a escolha e a vari�vel classe
+	classeEscolhida(escolhaClasse, classe);	//Função responsável pela condição da classe, armazenando a escolha e a variável classe
 	strcpy(personagem1.classe, classe);
 
 	printf("Otimo, vc escolheu %s\n\n", classe);
 
 	printf("Resumo do personagem: ");
 
-	resumoPersonagem(personagem1.nome, personagem1.classe);	//Chamar a fun��o resumo personagem
+	resumoPersonagem(personagem1.nome, personagem1.classe);	//Chamar a função resumo personagem
 
 	printf("Deseja confirmar?\n\n 1-Sim\n 2-Nao\n\n");
 	scanf("%d", &resposta);
 
 	if (resposta != 1)
 	{
-		criarPersonagem();	//Fun��o de criar personagem ir� repetir at� que o usu�rio confirme a cria��o do personagem*/
+		criarPersonagem();	//Função de criar personagem irá repetir até que o usuário confirme a criação do personagem*/
 	}
 
 	personagemExistente = 1;	//Personagem foi criado, eba
@@ -275,8 +275,8 @@ void criarPersonagem() /*Primeira op��o do menu*/
 // Fun��o destinada a parte da escolha de classes
 void classeEscolhida(int escolhaClasse, char *classe)
 {
-	//Fun��o respons�vel pela escolha da classe, a classe escolhida ser�
-	//armazenada no ponteiro classe, que ir� apontar para a var�avel classe em jogar(void)
+	//Função responsável pela escolha da classe, a classe escolhida será
+	//armazenada no ponteiro classe, que irá apontar para a variavel classe em jogar(void)
 	if (escolhaClasse == 1)
 	{
 		strcpy(classe, "Guerreiro");
@@ -306,11 +306,11 @@ void resumoPersonagem(char *nome, char *classe)
 
 // Inicio do jogo
 void jogoIniciado(char *nome)
-{ /*Fun��o de gameplay*/
+{ /*Função de gameplay*/
 	int resposta;
 
-	checkPoint = 1;	//Esse checkpoint serve tanto para o usuario retornar a esse cen�rio do rpg (Atrav�s da 5 opc�o do MENU) e tanto pra salvar o progresso no FILE
-	//O Checkpoint inicial � 1, por�m pra cada cen�rio (func�es) o checkpoint ir� progredir.
+	checkPoint = 1;	//Esse checkpoint serve tanto para o usuario retornar a esse cenário do rpg (Através da 5 opções do MENU) e tanto pra salvar o progresso no FILE
+	//O Checkpoint inicial é 1, porém pra cada cenário (funções) o checkpoint irá progredir.
 	printf("\n====================================================\n");
 	printf("\n\nA medida que voce abre os olhos, a luz dourada do entardecer banha as ruas de Capivopolis,\n"
 		"uma cidade de arquitetura excentrica e sons vibrantes. O aroma de paes frescos se mistura\n"
@@ -354,7 +354,7 @@ void jogoIniciado(char *nome)
 void explorarCidade(int resposta)
 {
 	checkPoint = 2;
-	//Essa fun��o ser� respons�vel pela exploracao da cidade 
+	//Essa função será responsável pela exploracao da cidade 
 
 	if (resposta == 1)
 	{
@@ -447,13 +447,13 @@ void entrarTaverna(void)
 	{
 		//Esse while vai fazer o case 1 repetir.
 
-		char *escolhasTaverna[] = {	//As alternativas poss�veis ficar�o armazenadas nessa vari�vel, que � um ponteiro pois ser� usada na vari�vel "respostaTaverna"
+		char *escolhasTaverna[] = {	//As alternativas possíveis ficarão armazenadas nessa variável (usada na variável "respostaTaverna")
 
 			" 1- Bebida",
 			" 2- Conversar com o velho anao",
 			" 3- Opcoes\n" };
 
-		int respostaTaverna = exibirTexto( // Isto chama a fun��o para mostrar os textos da campanha
+		int respostaTaverna = exibirTexto( // Isto chama a função para mostrar os textos da campanha
 			"Qual a sua decisao?\n",
 			escolhasTaverna	// Array das escolhas da Taverna
 	);
@@ -463,7 +463,7 @@ void entrarTaverna(void)
 			case 1:
 				printf("\n\nVoce decide tomar uma bebida. Voce sente o forte teor alcoolico descer pela garganta. Isso te faz Cogitar a segunda opcao...\n\n");
 				limparBuffer();
-				continue;	//A partir daqui, j� que o loop � verdadeiro, ele vai pular todos os cases de baixo (ignora-los e voltar pro inicio do while, at� que o usuario escolha outro case)
+				continue;	//A partir daqui, já que o loop é verdadeiro, ele vai pular todos os cases de baixo (ignora-los e voltar pro inicio do while, até que o usuario escolha outro case)
 				break;
 			case 2:
 				anaoDialogo();
@@ -500,13 +500,13 @@ void anaoDialogo(void)
 
 	while (continuar)
 	{
-		char *escolhasAnao[] = { //As alternativas poss�veis ficar�o armazenadas nessa vari�vel, que � um ponteiro pois ser� usada na vari�vel "respostaAnao"
+		char *escolhasAnao[] = { //As alternativas possíveis ficarão armazenadas nessa variável, que é um ponteiro que será usado na variável "respostaAnao"
 
 			" 1- Sair para Investigar",
 			" 2- Continuar Bebendo",
 			" 3- Opcoes\n" };
 
-		int respostaAnao = exibirTexto( // Isto chama a fun��o para mostrar os textos da campanha
+		int respostaAnao = exibirTexto( // Isto chama a função para mostrar os textos da campanha
 			"Qual a sua decisao?\n",
 			escolhasAnao // Array das escolhas do anao
 	);
@@ -518,8 +518,8 @@ void anaoDialogo(void)
 				printf("\n====================================================\n");
 				printf("\n\nVoce se levanta da cadeira, o olhar decidido.\n"
 					"O anao sorri, mostrando dentes amarelados.\n\n"
-					"� Corajoso, hein? Aqui, leve isto. � Ele desliza um pequeno frasco de liquido azul.\n"
-					"� Pode nao parecer, mas cura ate orgulho ferido.\n\n"
+					"E Corajoso, hein? Aqui, leve isto. � Ele desliza um pequeno frasco de liquido azul.\n"
+					"E Pode nao parecer, mas cura ate orgulho ferido.\n\n"
 					"Ao sair da taverna, o vento frio da noite corta sua pele.\n"
 					"A lua cheia ilumina o caminho, e a silhueta de uma torre antiga surge ao norte,\n"
 					"como um dedo ossudo apontando para o ceu.\n"
@@ -528,7 +528,7 @@ void anaoDialogo(void)
 					"Portoes de ferro enferrujados aparecem diante de voce, rangendo como se sussurrassem segredos antigos.\n"
 					"La dentro, a velha torre espera, suas janelas negras como olhos vazios.\n\n"
 					"De repente, um uivo distante ecoa, seguido por risadas baixas e perturbadoras.\n"
-					"Algo � ou alguem � esta ciente de sua presenca.\n\n");
+					"Algo ou alguem esta ciente de sua presenca.\n\n");
 				torreVelha();
 				break;
 			case 2:
@@ -560,13 +560,13 @@ void torreVelha(void)
 
 	while (continuar)
 	{
-		char *escolhasTorre[] = { // As alternativas poss�veis ficar�o armazenadas nessa vari�vel, que � um ponteiro pois ser� usada na vari�vel "respostaTorre"
+		char *escolhasTorre[] = { // As alternativas possíveis ficarão armazenadas nessa variável, (usada na variável "respostaTorre")
 
 			" 1- Procurar uma entrada discreta ao redor da torre",
 			" 2- Abrir os portoes com for�a e entrar direto",
 			" 3- Opcoes\n" };
 
-		int respostaTorre = exibirTexto( // Isto chama a fun��o para mostrar os textos da campanha
+		int respostaTorre = exibirTexto( // Isto chama a função para mostrar os textos da campanha
 			"Qual a sua decisao?\n",
 			escolhasTorre);	// Array das escolhas da torre
 
@@ -581,13 +581,13 @@ void torreVelha(void)
 					"Ao lado dela, ha um buraco na parede, estreito, mas talvez o suficiente para voce passar �\n"
 					"embora pareca perigoso.\n\n"
 					"Enquanto decide o que fazer, um ruido subito surge atras de voce: passos apressados quebrando galhos.\n"
-					"Alguem � ou alguma coisa � esta vindo!\n\n");
+					"Alguem ou alguma coisa esta vindo!\n\n");
 				entrarBuraco();
 				break;
 
 			case 2:
 				printf("\n\nVoce reune toda a sua forca, posiciona-se para empurrar os portoes enferrujados e...\n"
-					"com um estrondo, seus musculos come�am a ceder. O ferro resiste, e voce, exausto e sem sucesso,\n"
+					"com um estrondo, seus musculos comecam a ceder. O ferro resiste, e voce, exausto e sem sucesso,\n"
 					"fica mais uma vez de frente aos portoes implacaveis. O barulho atrai a atencao de algo nas sombras.\n"
 					"Voce se sente um pouco mais vulneravel agora.\n\n");
 
@@ -614,13 +614,13 @@ void entrarBuraco(void)
 {
 	checkPoint = 6;
 
-	char *escolhasBuraco[] = {	// As alternativas poss�veis ficar�o armazenadas nessa vari�vel, que � um ponteiro pois ser� usada na vari�vel "respostaBuraco"
+	char *escolhasBuraco[] = {	// As alternativas possíveis ficarão armazenadas nessa vari�vel, (usada na variável "respostaBuraco")
 
 		" 1- Entrar pelo buraco na parede, apesar do perigo.",
 		" 2- Esconder-se nas trepadeiras, esperando para emboscar quem esta vindo.",
 		" 3- Opcoes" };
 
-	int respostaBuraco = exibirTexto( // Isto chama a fun��o para mostrar os textos da campanha
+	int respostaBuraco = exibirTexto( // Isto chama a função para mostrar os textos da campanha
 		"Qual a sua decisao?\n",
 		escolhasBuraco // Array das escolhas do Buraco
 );
@@ -671,13 +671,13 @@ void olharParaTras(void)
 {
 	checkPoint = 7;
 
-	char *escolhasOlharAtras[] = {	//As alternativas poss�veis ficar�o armazenadas nessa vari�vel, que � um ponteiro pois ser� usada na vari�vel "respostaBuraco"
+	char *escolhasOlharAtras[] = {	//As alternativas possíveis ficarão armazenadas nessa variável (ponteiro usado na variável "respostaBuraco")
 
 		" 1- Virar para tras e encarar o que esta vindo.",
 		" 2- Correr em direcao ao altar e tentar interagir com ele, na esperan�a de ativar algo ou encontrar uma saida.",
 		" 3- Opcoes\n" };
 
-	int respostaOlharAtras = exibirTexto(// Isto chama a fun��o para mostrar os textos da campanha
+	int respostaOlharAtras = exibirTexto(// Isto chama a função para mostrar os textos da campanha
 		"Qual a sua decisao?\n",
 		escolhasOlharAtras	// Array das escolhas da Taverna
 );
@@ -716,7 +716,7 @@ void olharParaTras(void)
 	printf("\n====================================================\n");
 	printf("                FIM DO BETA\n");
 	printf("====================================================\n");
-	printf("\nA jornada at� aqui foi cheia de desafios e surpresas!\n");
+	printf("\nA jornada ate aqui foi cheia de desafios e surpresas!\n");
 	printf("Com isso, encerramos a fase Beta do Capivara Adventure.\n");
 	printf("Obrigado Professor Mayrton por nos ajudar a tornar essa aventura ainda mais Unica!\n");
 	printf("\n====================================================\n");
@@ -742,9 +742,9 @@ void opcoes(void)
 		" 7- Sair do jogo\n",
 	};
 
-	int respostaOpcoes = exibirTextoOpcoes(//O exibirTexto � a funcao respons�vel tanto por pegar esse texto ""O que deseja fazer?\n", quanto pra ser usado como base pro switch (respostaOpcoes)
+	int respostaOpcoes = exibirTextoOpcoes(//O exibirTexto é a funcao responsavel tanto por pegar o texto ""O que deseja fazer?\n", quanto pra ser usado como base pro switch (respostaOpcoes)
 		"O que deseja fazer?\n",
-		escolhasOpcoes	//� o array das opcoes
+		escolhasOpcoes	//array das opcoes
 );
 
 	switch (respostaOpcoes)
@@ -768,7 +768,7 @@ void opcoes(void)
 			break;
 
 		case 5:
-			listarMochila(inventario, tamanhoInventario);	//o valor de  tamanhoInvent�rio � copiado pro parametro tamanho, por isso que ao inv�s de apenas TAMANhO como parametro, usamos o tamanhoInventario
+			listarMochila(inventario, tamanhoInventario);	//o valor de  tamanhoInventário é copiado pro parametro tamanho, é por isso que ao invés de apenas TAMANhO como parametro, usamos o tamanhoInventario
 			break;
 
 		case 6:
@@ -790,18 +790,18 @@ void opcoes(void)
 	opcoes();
 }
 
-// Funcao respons�vel por exibir os textos, assim como as escolhas nos dialogos.
+// Funcao responsável por exibir os textos, assim como as escolhas nos dialogos.
 int exibirTexto(char *descricao, char *escolhas[])
 {
 	
-	int i;	// Para itera��o
+	int i;	// Para iteração
 	int opcao;	// Pra opcao a ser escaneada
 
 	printf("%s\n", descricao);
 
 	for (i = 0; i < 3; i++)
 	{
-		printf("%s\n", escolhas[i]);	// Esse laco de repeti��o, far� com que as escolhas sejam impressas
+		printf("%s\n", escolhas[i]);	// Esse laco de repetição, fará com que as escolhas sejam impressas
 	}
 
 	scanf("%d", &opcao);	// 
@@ -809,18 +809,18 @@ int exibirTexto(char *descricao, char *escolhas[])
 	return opcao;	// vai pegar a opcao escolhida pelo usuario 
 }
 
-// Funcao respons�vel por exibir os textos, assim como as escolhas nos dialogos.
+// Funcao responsável por exibir os textos, assim como as escolhas nos dialogos.
 int exibirTextoOpcoes(char *descricao, char *escolhas[])
 {
 	
-	int i;	// Para itera��o
+	int i;	// Para iteração
 	int opcao;	// Pra opcao a ser escaneada
 
 	printf("%s\n", descricao);
 
 	for (i = 0; i < 7; i++)
 	{
-		printf("%s\n", escolhas[i]);	// Esse laco de repeti��o, far� com que as escolhas sejam impressas
+		printf("%s\n", escolhas[i]);	// Esse laco de repetição, fará com que as escolhas sejam impressas
 	}
 
 	scanf("%d", &opcao);	// 
@@ -869,7 +869,7 @@ void buscarPersonagem(Personagem *personagemArray, int contagem)
 
 	for (i = 0; i < contagem; i++)
 	{
-		if (strcmp(personagemArray[i].nome, personagemNome) == 0)	// Para se comparar o conte�do de dois strings deve usar a fun��o strcmp
+		if (strcmp(personagemArray[i].nome, personagemNome) == 0)	// Para se comparar o conteúdo de dois strings deve usar a função strcmp
 		{
 			printf("\n-------------------------------------\n");
 			printf("\nPersonagem Encontrado!\n\n");
@@ -890,13 +890,13 @@ void inserirElemento(char inventario[][20], int *tamanho, const char *item)
 {
 	if (*tamanho < MAX_INVENTARIO)
 	{
-		// Se o tamanho atual for maior que o tamanho m�ximo (10)
+		// Se o tamanho atual for maior que o tamanho máximo (10)
 		strcpy(inventario[*tamanho], item);	// Vai inserir no inventario (no tamanho atual) o item
 		(*tamanho) ++;	// Vai aumentar o tamanho do inventario atual (para nao ultrapassar o limite de itens)
 	}
 	else
 	{
-		printf("Invent�rio cheio! N�o � poss�vel adicionar mais itens.\n");
+		printf("Inventario cheio! Nao e possivel adicionar mais itens.\n");
 	}
 }
 
@@ -906,7 +906,7 @@ void listarMochila(char inventario[][20], int tamanho)
 	int i;
 	printf("\n-------------------------------------\n");
 	printf("Mochila: \n");
-	for (i = 0; i < tamanho; i++ )// Enquanto o i for menor que o tamanho maximo (que � 10), ele vai imprimindo os itens do inventario
+	for (i = 0; i < tamanho; i++ )// Enquanto o i for menor que o tamanho maximo (que é 10), ele vai imprimindo os itens do inventario
 	{
 		printf("\n %s\n", inventario[i]);
 	}
@@ -914,14 +914,14 @@ void listarMochila(char inventario[][20], int tamanho)
 	printf("\n-------------------------------------\n");
 }
 
-// Cenario do jogo em que o jogador vai ter a op��o de comprar os objetos
+// Cenario do jogo em que o jogador vai ter a opção de comprar os objetos
 void loja()
 {
 	
 	int escolha;
 
 	printf("Bem vindo(a) a nossa loja, aventureiro(a). Escolha uma das opcoes abaixo:\n\n");
-	printf("Conhe�a nossos itens\n");
+	printf("Conheça nossos itens\n");
 	printf("1- Mapa\n");
 	printf("2- Bussola\n");
 	printf("3- Armadura\n");
@@ -930,7 +930,7 @@ void loja()
 	printf("6- Voltar para o jogo\n\n");
 	scanf("%d", &escolha);
 	
-	switch (escolha) // Os cases a seguir ser� destinado a confirma��o de cada item
+	switch (escolha) // Os cases a seguir serao destinados a confirmação de cada item
 	{
 
 		case 1:
@@ -1041,7 +1041,7 @@ void loja()
 	}
 }
 
-// Faz com que o usu�rio retorne na fun��o que estava
+// Faz com que o usuário retorne na função que estava
 void retornarJogo()
 {
 	
@@ -1053,12 +1053,12 @@ void retornarJogo()
 			break;
 
 		case 2:
-			// No cen�rio da explora��o da cidade
-			explorarCidade(1);	// Passa 1 como padr�o para continuar explorando
+			// No cenário da exploração da cidade
+			explorarCidade(1);	// Passa 1 como padrão para continuar explorando
 			break;
 
 		case 3:
-			//No cen�rio da taverna
+			//No cenario da taverna
 			entrarTaverna();
 			break;
 
@@ -1073,24 +1073,24 @@ void retornarJogo()
 			break;
 
 		case 6:
-			//No cen�rio quando entra no buraco da torre
+			//No cenário quando entra no buraco da torre
 			entrarBuraco();
 			break;
 
 		case 7:
-			//No cen�rio quando olha para tr�s
+			//No cen�rio quando olha para trás
 			olharParaTras();
 			break;
 
 		default:
-			printf("Erro: Checkpoint inv�lido\n");
+			printf("Erro: Checkpoint inválido\n");
 			break;
 	}
 }
 
 /*
 *
-* Contemos os requisitos da atividade:
+* Contamos os requisitos da atividade:
 *
 * #Inserir elemento   
 * #Deletar elemento      
@@ -1102,6 +1102,6 @@ void retornarJogo()
 * Com nomes diferentes e que fazem sentido com nosso tema. 
 * 
 * 
-* Agradecemos a sua dedica��o em nos ensinar mestre! Boas festa e feliz ano novo. 
+* Agradecemos ao Prof Mayrton, a sua dedicão em nos ensinar mestre! Boas festa e feliz ano novo.
 *
 */
