@@ -1,6 +1,6 @@
 # 🏠 Capivara Adventure - Um RPG Medieval Baseado em Texto  
 
-**Capivara Adventure** é um jogo de RPG medieval interativo, desenvolvido como parte do **trabalho acadêmico** para a disciplina de **Lógica Matemática e Algoritmo**, no **1º período do curso de Análise e Desenvolvimento de Sistemas**.  
+**Capivara Adventure** é um jogo de RPG medieval interativo, desenvolvido através da linguagem C como parte do **trabalho acadêmico** para a disciplina de **Lógica Matemática e Algoritmo**, no **1º período do curso de Análise e Desenvolvimento de Sistemas**.  
 
 Neste projeto, o jogador embarca em uma jornada épica repleta de desafios, decisões estratégicas e encontros inesperados, tudo em busca da lendária **Capivara Mágica**. O jogo apresenta uma narrativa envolvente e um sistema de interação baseado em texto, onde cada escolha influencia o rumo da história.  
 
